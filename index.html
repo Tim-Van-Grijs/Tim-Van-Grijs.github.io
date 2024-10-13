@@ -64,10 +64,12 @@
       });
       //alerts the user of what the hex color was when clicked
       hexColorButton.addEventListener("click", function () {
-        window.alert(
+        /*window.alert(
           "This is the hexadecimal volor value for the background color of the last randomly generated color. In other words, it's the text inside the button that you just clicked.\nHexadecimal color value: " +
             fullRandomHexColor
-        );
+        );*/
+        navigator.clipboard.writeText(fullRandomHexColor);
+        window.alert("Copied " + fullRandomHexColor + " to clipboard");
       });
       // appending the children/adding the buttons to the page
       document.body.appendChild(button);
