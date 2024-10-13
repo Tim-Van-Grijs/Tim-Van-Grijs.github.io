@@ -11,7 +11,7 @@
       The leftmost button allows you to change the background to a color of your
       liking. The middle button changes the color to a random color. The
       rightmost button displays that hexadecimal color as text. Clicking it
-      displays the text inside the buttons text box as a popup.
+      copies the text inside the buttons text box and alerts you that that happened.
     </p>
     <script>
       var a = 0;
@@ -64,10 +64,7 @@
       });
       //alerts the user of what the hex color was when clicked
       hexColorButton.addEventListener("click", function () {
-        /*window.alert(
-          "This is the hexadecimal volor value for the background color of the last randomly generated color. In other words, it's the text inside the button that you just clicked.\nHexadecimal color value: " +
-            fullRandomHexColor
-        );*/
+        //copies the fullRandomHexColor to clipboard
         navigator.clipboard.writeText(fullRandomHexColor);
         window.alert("Copied " + fullRandomHexColor + " to clipboard");
       });
