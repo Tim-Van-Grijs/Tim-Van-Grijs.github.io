@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Background Color Changer</title>
+    <style></style>
   </head>
   <body>
     <h1>Hello</h1>
@@ -9,32 +10,33 @@
     <p>
       The leftmost button allows you to change the background to a color of your
       liking. The middle button changes the color to a random color. The
-      rightmost button displays that hexadecimal color as text. Clicking it does
-      nothing.
+      rightmost button displays that hexadecimal color as text. Clicking it
+      displays the text inside the buttons text box as a popup.
     </p>
     <script>
-      //creating variables
+      var a = 0;
+      let b = 1;
       let color = "#ffffff";
-      let fullRandomHexColor = "#ffffff";
-      // Creating the buttons
+      let fullRandomHexColor = "#ffffff"; // Declare this at the top for global scope
+      // creating the buttons
       // Create a button element
       const button = document.createElement("button");
       // Create a button for random color
       const randomColorButton = document.createElement("button");
-      // Creates a button with the hexadecimal value of the background as the text
+      // creates a button with the hexadecimal value of the background as the text
       const hexColorButton = document.createElement("button");
 
-      // Button text fields
+      // button text fields
       button.textContent = "Please Click Me For Color";
       randomColorButton.textContent = "Random Color";
       hexColorButton.textContent = fullRandomHexColor;
 
-      // Button colors
+      // button colors
       button.style.backgroundColor = "lightgray";
       randomColorButton.style.backgroundColor = "lightgray";
       hexColorButton.style.backgroundColor = "lightgray";
 
-      // Event listeners
+      // event listeners
       // Changes the background to the color given when prompted
       button.addEventListener("click", function () {
         color = prompt(
@@ -57,21 +59,26 @@
         // Set the background color to the generated random color
         document.body.style.backgroundColor = fullRandomHexColor;
 
-        //alerts the user of what the hex color was when clicked
-        hexColorButton.addEventListener("click", function () {
-          window.alert(
-            "This is the hexadecimal volor value for the background color of the last randomly generated color. In other words, it's the text inside the button that you just clicked.\nHexadecimal color value: " +
-              fullRandomHexColor
-          );
-        });
-        // Updates the text field for the fullRandomhexColor button.
+        //updates the text field for the fullRandomhexColor button.
         hexColorButton.textContent = fullRandomHexColor;
       });
-
-      // Appending the children/adding the buttons to the page
+      //alerts the user of what the hex color was when clicked
+      hexColorButton.addEventListener("click", function () {
+        window.alert(
+          "This is the hexadecimal volor value for the background color of the last randomly generated color. In other words, it's the text inside the button that you just clicked.\nHexadecimal color value: " +
+            fullRandomHexColor
+        );
+      });
+      // appending the children/adding the buttons to the page
       document.body.appendChild(button);
       document.body.appendChild(randomColorButton);
       document.body.appendChild(hexColorButton);
+
+      //document.body.style.backgroundColor = "#ff0000";
     </script>
   </body>
+  <head>
+    <style></style>
+  </head>
 </html>
+
