@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Background Color Changer</title>
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <p>I am experimenting with background changes.</p>
+    <p>
+      The leftmost button allows you to change the background to a color of your
+      liking. The middle button changes the color to a random color. The
+      rightmost button displays that hexadecimal color as text. Clicking it does
+      nothing.
+    </p>
+    <script>
+      
+      let color = "#ffffff";
+      let fullRandomHexColor = "#ffffff";
+      // Creating the buttons
+      // Create a button element
+      const button = document.createElement("button");
+      // Create a button for random color
+      const randomColorButton = document.createElement("button");
+      // Creates a button with the hexadecimal value of the background as the text
+      const hexColorButton = document.createElement("button");
+
+      // Button text fields
+      button.textContent = "Please Click Me For Color";
+      randomColorButton.textContent = "Random Color";
+      hexColorButton.textContent = fullRandomHexColor;
+
+      // Button colors
+      button.style.backgroundColor = "lightgray";
+      randomColorButton.style.backgroundColor = "lightgray";
+      hexColorButton.style.backgroundColor = "lightgray";
+
+      // Event listeners
+      // Changes the background to the color given when prompted
+      button.addEventListener("click", function () {
+        color = prompt(
+          "Enter a color or a hexadecimal value. No spaces. Include the # symbol if using hexadecimal.",
+          color
+        );
+        document.body.style.backgroundColor = color;
+      });
+      // Changes the background to a random hexadecimal color
+      randomColorButton.addEventListener("click", function () {
+        // Generate a random number between 0 and 0xFFFFFF (16777215 in decimal)
+        let randomColor = Math.floor(Math.random() * 16777215);
+
+        // Convert the number to a hexadecimal string and pad with zeros if necessary
+        let hexColor = randomColor.toString(16).padStart(6, "0");
+
+        // Add the '#' prefix to create the full random hex color
+        fullRandomHexColor = "#" + hexColor;
+
+        // Set the background color to the generated random color
+        document.body.style.backgroundColor = fullRandomHexColor;
+
+        //updates the text field for the fullRandomhexColor button.
+        hexColorButton.textContent = fullRandomHexColor;
+      });
+
+      // Appending the children/adding the buttons to the page
+      document.body.appendChild(button);
+      document.body.appendChild(randomColorButton);
+      document.body.appendChild(hexColorButton);
+    </script>
+  </body>
+</html>
