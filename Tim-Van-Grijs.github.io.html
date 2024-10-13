@@ -57,7 +57,14 @@
         // Set the background color to the generated random color
         document.body.style.backgroundColor = fullRandomHexColor;
 
-        //updates the text field for the fullRandomhexColor button.
+        //alerts the user of what the hex color was when clicked
+        hexColorButton.addEventListener("click", function () {
+          window.alert(
+            "This is the hexadecimal volor value for the background color of the last randomly generated color. In other words, it's the text inside the button that you just clicked.\nHexadecimal color value: " +
+              fullRandomHexColor
+          );
+        });
+        // Updates the text field for the fullRandomhexColor button.
         hexColorButton.textContent = fullRandomHexColor;
       });
 
